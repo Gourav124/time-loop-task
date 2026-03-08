@@ -13,7 +13,6 @@ type Product = {
   description: string,
   price: string,
   thumbnail: string
-
 }
 
 const CartScreen = () => {
@@ -25,7 +24,7 @@ const CartScreen = () => {
     try {
       const cartIems = await AsyncStorage.getItem('cart');
       const cart = JSON.parse(cartIems || '[]');
-      setCartItems(cart);
+      setCartItems(cartIems ? JSON.parse(cartIems) : []);
       setLoading(false)
       console.log(cart)
     } catch (error) {
@@ -51,7 +50,7 @@ const CartScreen = () => {
 
   useEffect(() => {
     fetchCarts();
-  }, [cartItems])
+  }, [])
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#dbebecff' }}>

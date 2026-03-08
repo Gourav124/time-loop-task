@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { getCategoriesApi, getProductsByCategoryApi } from '../api/apis';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import FontAwesome from '@react-native-vector-icons/fontawesome';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -20,11 +20,10 @@ type Product = {
     description: string,
     price: string,
     thumbnail: string
-
 }
 
 const HomeScreen = ({ navigation }: any) => {
-
+    
     const [category, setCategory] = useState<Category[]>([]);
     const [products, setProducts] = useState<Product[]>([]);
     const [selectedCategory, setSelectedCategory] = useState('Beauty');
@@ -73,11 +72,12 @@ const HomeScreen = ({ navigation }: any) => {
     useEffect(() => {
         fetchcategories();
         fetchProductsByCategory(selectedCategory);
+        // handleSearch();
+        // console.log('Search button clicked');
     }, []);
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-
             <View style={styles.container}>
 
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>

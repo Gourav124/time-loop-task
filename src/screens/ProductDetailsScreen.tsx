@@ -15,7 +15,6 @@ type Product = {
   description: string,
   price: string,
   thumbnail: string
-
 }
 
 const ProductDetailsScreen = ({ route, navigation }: any) => {

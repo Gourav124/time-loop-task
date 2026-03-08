@@ -12,9 +12,9 @@ const Stack = createNativeStackNavigator();
 const RootStack = () => {
   return (
     <Stack.Navigator initialRouteName='Tabs' screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name='Cart' component={CartScreen} />
-      <Stack.Screen name="Details" component={ProductDetailsScreen} />
+      {/* <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name='Cart' component={CartScreen} /> */}
+      <Stack.Screen name="Details" component={ProductDetailsScreen}/>
       <Stack.Screen name="Tabs" component={MainTabs} />
     </Stack.Navigator>
   )
